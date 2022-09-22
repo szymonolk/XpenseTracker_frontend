@@ -7,17 +7,33 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AddNewComponent } from './add-new/add-new.component';
+import { MainViewComponent } from './main-view/main-view.component';
+import { AllExpensesViewComponent } from './all-expenses-view/all-expenses-view.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSliderModule} from "@angular/material/slider";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
+import {MatFormFieldModule} from "@angular/material/form-field";
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
-    AddNewComponent
+    AddNewComponent,
+    MainViewComponent,
+    AllExpensesViewComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule,
+    MatSliderModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

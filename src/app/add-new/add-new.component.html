@@ -1,10 +1,46 @@
 <h1>In building...</h1>
 
-<form>
-  <div class="col-5">
-  <div class="form-group">
-    <label >Expense name</label>
-    <input type="text" class="form-control"placeholder="Dinner">
+
+<div class="row g-5">
+  <div class="col-md-5 col-lg-4 order-md-last">
   </div>
+  <div class="col-md-7 col-lg-8">
+    <h4 class="mb-3">Enter information about expense</h4>
+    <form >
+      <div class="row g-3">
+        <div class="col-sm-6">
+          <label class="form-label">Expense name</label>
+          <input type="text" class="form-control"  placeholder="">
+        </div>
+        <div class="col-sm-4">
+          <label class="form-label">Cost</label>
+          <input type="text" class="form-control" placeholder="">
+        </div>
+
+        <div class="col-md-5">
+          <label class="form-label">Priority</label>
+          <select class="form-select" required="">
+            <option value="">Choose...</option>
+            <option>Low</option>
+            <option>Medium</option>
+            <option>High</option>
+          </select>
+        </div>
+
+        <div class="col-md-4">
+          <div class="col-12">
+            <label class="form-label">Date</label>
+            <div class="input-group">
+              <input class="form-control" placeholder="YYYY-MM-DD"
+                     name="dp" ngbDatepicker #d="ngbDatepicker">
+              <button class="btn btn-outline-secondary " (click)="d.toggle()" type="button"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="my-4">
+      <button class="w-100 btn btn-primary btn-lg" >Add new expense</button>
+    </form>
   </div>
-</form>
+</div>
+
