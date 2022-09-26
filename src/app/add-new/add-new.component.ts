@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
+import {Priority} from "../models/Priority";
+import {ExpenseModel} from "../models/ExpenseModel";
+
 
 @Component({
   selector: 'app-add-new',
@@ -13,16 +16,23 @@ export class AddNewComponent implements OnInit {
     cost: new FormControl(' '),
     priority: new FormControl(' '),
     date: new FormControl(' ')
-  })
+  });
+
+
+
+  allPriorities = [
+    new Priority('Low'),
+    new Priority('Medium'),
+    new Priority('High')
+  ];
 
   createNewExpense(){
     console.log(this.newExpenseForm.value);
+    this.newExpenseForm.reset();
   }
 
+  constructor(private fb: FormBuilder) { }
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }

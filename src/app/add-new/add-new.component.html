@@ -5,7 +5,7 @@
   <div class="col-md-7 col-lg-8">
     <h4 class="mb-3">Enter information about expense</h4>
     <div [formGroup]="newExpenseForm">
-<!--    <form >-->
+
       <div class="row g-3">
         <div class="col-sm-6">
           <label class="form-label">Expense name</label>
@@ -18,11 +18,12 @@
 
         <div class="col-md-5">
           <label class="form-label">Priority</label>
-          <select class="form-select" required="">
-            <option formControlName="priority" value="">Choose...</option>
-            <option>Low</option>
-            <option>Medium</option>
-            <option>High</option>
+          <select formControlName="priority" class="form-select" required="">
+            <option value="">Choose...</option>
+            <option *ngFor="let prio of allPriorities">
+                {{prio.priority}}
+            </option>
+
           </select>
         </div>
 
@@ -40,9 +41,8 @@
       </div>
       <hr class="my-4">
       <button class="w-100 btn btn-primary btn-lg" (click)="createNewExpense()">Add new expense</button>
+      {{newExpenseForm.value | json}}
     </div>
-<!--    </form>-->
-
   </div>
 </div>
 

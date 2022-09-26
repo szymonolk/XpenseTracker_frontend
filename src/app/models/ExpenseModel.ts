@@ -1,6 +1,7 @@
 export interface ExpenseModel{
   id?: number;
-  expenseTitle: string;
+  expenseName: string;
   priority: string;
   cost: number;
+  date?: Date;
 }
