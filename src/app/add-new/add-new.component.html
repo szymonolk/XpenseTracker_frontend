@@ -3,27 +3,25 @@
   <div class="col-md-5 col-lg-4 order-md-last">
   </div>
   <div class="col-md-7 col-lg-8">
-    <h4 class="mb-3">Enter information about expense</h4>
-    <div [formGroup]="newExpenseForm">
-
+    <h2 class="mb-3">Enter information about expense</h2>
+    <form #newExpenseForm="ngForm" (ngSubmit)="onSubmit(expenseModel)">
       <div class="row g-3">
         <div class="col-sm-6">
           <label class="form-label">Expense name</label>
-          <input formControlName="expenseName" type="text" class="form-control"  placeholder="">
+          <input type="text" class="form-control" [(ngModel)]="expenseModel.expenseName" name="expenseName" >
         </div>
         <div class="col-sm-4">
           <label class="form-label">Cost</label>
-          <input formControlName="cost" type="text" class="form-control" placeholder="">
+          <input type="text" class="form-control"[(ngModel)]="expenseModel.cost" name="Cost" >
         </div>
 
         <div class="col-md-5">
           <label class="form-label">Priority</label>
-          <select formControlName="priority" class="form-select" required="">
-            <option value="">Choose...</option>
+          <select class="form-select" required="" [(ngModel)]="expenseModel.priority" name="Priority">
+
             <option *ngFor="let prio of allPriorities">
                 {{prio.priority}}
             </option>
-
           </select>
         </div>
 
@@ -31,8 +29,8 @@
           <div class="col-12">
             <label class="form-label">Date</label>
             <div class="input-group">
-              <input formControlName="date" class="form-control" placeholder="YYYY-MM-DD"
-                     name="dp" ngbDatepicker #d="ngbDatepicker">
+              <input class="form-control" placeholder="YYYY-MM-DD"
+                     name="dp" ngbDatepicker #d="ngbDatepicker" [(ngModel)]="expenseModel.date" name="Date" >
               <button class="btn btn-outline-secondary " (click)="d.toggle()" type="button"></button>
 
             </div>
@@ -40,9 +38,10 @@
         </div>
       </div>
       <hr class="my-4">
-      <button class="w-100 btn btn-primary btn-lg" (click)="createNewExpense()">Add new expense</button>
+      <button class="w-100 btn btn-primary btn-lg">Add new expense</button>
       {{newExpenseForm.value | json}}
-    </div>
+
+    </form>
   </div>
 </div>
 

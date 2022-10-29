@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {Priority} from "../models/Priority";
 import {ExpenseModel} from "../models/ExpenseModel";
+import {ExpenseService} from "../expense.service";
+import {AddNewService} from "./add-new.service";
 
 
 @Component({
@@ -11,6 +13,8 @@ import {ExpenseModel} from "../models/ExpenseModel";
 })
 export class AddNewComponent implements OnInit {
 
+  expenseModel: ExpenseModel = {cost: 0, expenseName: " ", priority: " "};
+
   newExpenseForm = new FormGroup({
     expenseName: new FormControl(' '),
     cost: new FormControl(' '),
@@ -18,21 +22,27 @@ export class AddNewComponent implements OnInit {
     date: new FormControl(' ')
   });
 
-
-
   allPriorities = [
     new Priority('Low'),
     new Priority('Medium'),
     new Priority('High')
   ];
 
-  createNewExpense(){
-    console.log(this.newExpenseForm.value);
-    this.newExpenseForm.reset();
+  onSubmit(expenseModel: ExpenseModel) {
+    console.log(expenseModel);
+    this.expenseModel = {cost: 0, expenseName: " ", priority: " "};
+    this.createNew(expenseModel);
   }
 
-  constructor(private fb: FormBuilder) { }
+  createNew(expenseModel: ExpenseModel) {
+    this.addNewService.createNewExpense(expenseModel).subscribe();
+    this.expenseModel = {cost: 0, expenseName: " ", priority: " "};
+  }
 
-  ngOnInit(): void { }
+  constructor(private addNewService: AddNewService) {
+  }
+
+  ngOnInit(): void {
+  }
 
 }
