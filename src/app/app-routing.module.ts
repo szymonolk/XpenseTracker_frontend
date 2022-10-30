@@ -3,11 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import {AddNewComponent} from "./add-new/add-new.component";
 import {MainViewComponent} from "./main-view/main-view.component";
 import {AllExpensesViewComponent} from "./all-expenses-view/all-expenses-view.component";
+import {ExpenseDetailsComponent} from "./expense-details/expense-details.component";
+
 
 const routes: Routes = [
-  {path: 'addnew', component: AddNewComponent},
+  {path: 'add-new', component: AddNewComponent},
   {path: '', component: MainViewComponent },
-  {path: 'allexpenses', component:AllExpensesViewComponent}
+  {path: 'all-expenses', component:AllExpensesViewComponent},
+  {path: 'expense-details/:id', component:ExpenseDetailsComponent}
 ];
 
 @NgModule({

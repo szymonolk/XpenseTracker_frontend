@@ -10,7 +10,7 @@ export class AddNewService {
   constructor(private http: HttpClient ) { }
 
   createNewExpense(expenseModel: ExpenseModel): Observable<ExpenseModel> {
-    return this.http.post<ExpenseModel>('http://localhost:8080/create', expenseModel);
+    return this.http.post<ExpenseModel>('http://localhost:8080/api/expenses/create', expenseModel);
   }
 
 }

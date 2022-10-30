@@ -8,6 +8,6 @@ import {Observable} from "rxjs";
 })
 export class ExpenseService {
 
-  constructor(private http: HttpClient) {
+  constructor() {
   }
 }

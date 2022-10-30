@@ -4,4 +4,6 @@ export interface ExpenseModel{
   priority: string;
   cost: number;
   date?: Date;
+  createdDate?: string;
 }
+

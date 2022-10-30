@@ -5,7 +5,9 @@
   "projects": {
     "XpenseTracker": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "skipTests" : true
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
