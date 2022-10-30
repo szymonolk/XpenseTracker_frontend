@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ExpenseModel} from "../models/ExpenseModel";
 import {Observable} from "rxjs";
 import {AllExpensesService} from "./all-expenses.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-all-expenses-view',
@@ -9,7 +10,7 @@ import {AllExpensesService} from "./all-expenses.service";
   styleUrls: ['./all-expenses-view.component.css']
 })
 export class AllExpensesViewComponent implements OnInit {
-  constructor(private allExpenseService: AllExpensesService) { }
+  constructor(private allExpenseService: AllExpensesService, private router: Router) { }
 
   expenseList: ExpenseModel[] = [];
   expenses: Observable<ExpenseModel[]>;
@@ -23,7 +24,7 @@ export class AllExpensesViewComponent implements OnInit {
   }
 
   editTask(id: number){
-    console.log(id);
+    return this.router.navigateByUrl('/expense-details/' + id);
   }
 
 
