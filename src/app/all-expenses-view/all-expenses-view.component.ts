@@ -23,9 +23,8 @@ export class AllExpensesViewComponent implements OnInit {
     return this.expenses = this.allExpenseService.getAllExpenses();
   }
 
-  editTask(id: number){
-    return this.router.navigateByUrl('/expense-details/' + id);
+  editExpense(id: number){
+    this.router.navigateByUrl('/expense-details/' + id);
   }
-
 
 }

@@ -13,4 +13,9 @@ export class AllExpensesService {
   getAllExpenses(): Observable<ExpenseModel[]>{
     return this.http.get<ExpenseModel[]>('http://localhost:8080/api/expenses/find/all');
   }
+
+  findExpenseById(id: number){
+    return this.http.get('http://localhost:8080/api/expenses/find/' + id);
+  }
+
 }
