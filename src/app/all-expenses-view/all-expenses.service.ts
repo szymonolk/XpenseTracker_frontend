@@ -18,4 +18,5 @@ export class AllExpensesService {
     return this.http.get('http://localhost:8080/api/expenses/find/' + id);
   }
 
+
 }

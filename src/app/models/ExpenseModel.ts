@@ -3,7 +3,8 @@ export interface ExpenseModel{
   expenseName: string;
   priority: string;
   cost: number;
-  date?: Date;
+  description: string;
   createdDate?: string;
+
 }
 

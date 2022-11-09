@@ -27,4 +27,8 @@ export class AllExpensesViewComponent implements OnInit {
     this.router.navigateByUrl('/expense-details/' + id);
   }
 
+  getSomeInfo(expenseModel: ExpenseModel){
+    console.log(expenseModel.expenseName, expenseModel.id)
+  }
+
 }

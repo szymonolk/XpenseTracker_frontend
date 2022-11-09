@@ -13,7 +13,7 @@ import {AddNewService} from "./add-new.service";
 })
 export class AddNewComponent implements OnInit {
 
-  expenseModel: ExpenseModel = {cost: 0, expenseName: " ", priority: " "};
+  expenseModel: ExpenseModel = {cost: 0, expenseName: "", priority: "", description: ""};
 
   newExpenseForm = new FormGroup({
     expenseName: new FormControl(' '),
@@ -30,13 +30,13 @@ export class AddNewComponent implements OnInit {
 
   onSubmit(expenseModel: ExpenseModel) {
     console.log(expenseModel);
-    this.expenseModel = {cost: 0, expenseName: " ", priority: " "};
+    this.expenseModel = {cost: 0, expenseName: "", priority: "", description: ""};
     this.createNew(expenseModel);
   }
 
   createNew(expenseModel: ExpenseModel) {
     this.addNewService.createNewExpense(expenseModel).subscribe();
-    this.expenseModel = {cost: 0, expenseName: " ", priority: " "};
+    this.expenseModel = {cost: 0, expenseName: "", priority: "", description: ""};
   }
 
   constructor(private addNewService: AddNewService) {
